@@ -17,7 +17,8 @@ public class Main {
             System.out.println("3. Add Reader");
             System.out.println("4. Reader Reads Book");
             System.out.println("5. View Reading Club Members");
-            System.out.println("6. Exit");
+            System.out.println("6.Deletion of book ");
+            System.out.println("7.Exit. ");
             System.out.print("Choose an option: ");
 
             int choice = Integer.parseInt(scanner.nextLine());
@@ -85,6 +86,20 @@ public class Main {
                 }
 
                 case 6 -> {
+                    System.out.println("\n--- Delete a Book ---");
+                    System.out.print("Enter book title to delete: ");
+                    scanner.nextLine(); // consume leftover newline
+                    String titleToDelete = scanner.nextLine();
+
+                    boolean deleted = library.deleteBookByTitle(titleToDelete);
+                    if (deleted) {
+                        System.out.println("Book deleted successfully.");
+                    } else {
+                        System.out.println("Book not found.");
+                    }
+                }
+
+                case 7 -> {
                     System.out.println("Exiting. Goodbye!");
                     return;
                 }
